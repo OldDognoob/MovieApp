@@ -97,3 +97,19 @@ header {
 .movie:hover .movie-over {
   transform: translateY(0%);
 }
+
+.tag{
+  background-color:cadetblue;
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+
+.tag.green{
+  color: blue;
+}
+.tag.orange{
+  color: yellow;
+}
+.tag.red{
+  color: red;
+}
