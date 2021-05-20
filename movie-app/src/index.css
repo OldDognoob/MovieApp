@@ -40,20 +40,23 @@ header {
 .movie-container{
   display: flex;
   flex-wrap:wrap;
+  justify-content: center;
 }
 
 .movie{
   background-color: rgb(39, 59, 59);
   box-shadow: 3px 3px 5px rgba(0,0,0,0.1);
   width: 300px;
-  margin: 3rem;
+  margin: 1.5rem;
   border-radius: 3px;
   position: relative;
   overflow: hidden;
 }
 
 .movie img {
-  max-width: 100%;
+  object-fit: cover;
+  height:450px;
+  width: 100%;
 }
 
 .movie-info {
@@ -63,7 +66,8 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 0.5rem 1rem 1rem;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.4px;
+  
 }
 
 .movie info h3 {
@@ -100,14 +104,15 @@ header {
 
 .tag{
   background-color:cadetblue;
+  font-weight: bold;
   border-radius: 5px;
   padding: 0.5rem;
 }
 
-.tag.green{
+.tag.blue{
   color: blue;
 }
-.tag.orange{
+.tag.yellow{
   color: yellow;
 }
 .tag.red{

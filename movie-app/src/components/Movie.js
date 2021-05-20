@@ -13,8 +13,11 @@ const setVoteClass = (vote) => {
 }
 
 const Movie=({title, poster_path, overview, vote_average})=>(
+    // if we have the poster image we add the poster
+    // path to the image url otherwise 
+    // we just show this image
     <div className="movie">
-        <img src={IMG_API + poster_path} alt={title}/>
+        <img src={poster_path ? (IMG_API + poster_path) : 'https://unsplash.com/photos/CiUR8zISX60'} alt={title}/>
         <div className="movie-info">
             <h3>{title}</h3>
             <span className={
