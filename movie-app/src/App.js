@@ -1,14 +1,23 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
 import Movie from "./components/Movie";
 
+const FEATURED_API="https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&page=1"
+const IMG_API="https://image.tmdb.org/t/p/w1280"
+const SEARCH_API="https://api.themoviedb.org/3/search/movie?&api_key=04c35731a5ee918f014970082a0088b1&query="
+
 function App() {
+  //called the api to get the movies
+   const [movies, setMovies] = useState([]);
   // any array of movies where we are going to loop over the movies
-  const movies = ["1", "2", "3"];
-  return <div>
-   {movies.map(movie =>(
-   <Movie/>
-   ))}
-   
-    </div>;
+  useEffect(()=>{
+    fetch(FEATURED_API).then(res => res.json())
+    .then(data =>{
+      console.log(data);
+      setMovies(data);
+    });
+  },[]);
+
+  return <div>{movies.length > 0 && movies.map((movie)=><Movie/>)}</div>
+
 }
 export default App;
