@@ -7,13 +7,32 @@
 body {
   background-color: cadetblue;
   font-family: 'Poppins', sans-serif;
+  color: white;
   margin:0;
 }
 
+.movie-container{
+  display: flex;
+  flex-wrap:wrap;
+}
+
 .movie{
+  background-color: rgb(39, 59, 59);
   width: 300px;
+  margin: 1rem;
 }
 
 .movie img {
   max-width: 100%;
+}
+
+.movie-info {
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.movie info h3 {
+  margin: 0;
 }
