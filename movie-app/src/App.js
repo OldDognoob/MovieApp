@@ -10,24 +10,47 @@ const SEARCH_API =
 function App() {
   //called the api to get the movies
   const [movies, setMovies] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
   // any array of movies where we are going to loop over the movies
   useEffect(() => {
-    fetch(FEATURED_API)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setMovies(data.results);
-      });
+    getMovies(FEATURED_API);
   }, []);
+
+  const getMovies=(API)=>{
+    fetch(API)
+    .then((res) => res.json())
+    .then((data) => {
+      //console.log(data);
+      setMovies(data.results);
+    });
+  }
+
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+
+    if(searchTerm){
+      getMovies(SEARCH_API + searchTerm);
+      };
+      setSearchTerm("");
+    }      
+  
+
+  const handleOnChange = (e) => {
+    setSearchTerm(e.target.value);
+  }
 
   return (
     <>
       <header>
+        <form onSubmit={handleOnSubmit}>
         <input 
         className="search" 
         type="search" 
         placeholder="Search..." 
+        value={searchTerm}
+        onChange={handleOnChange}
         />
+        </form>
       </header>
       <div className="movie-container">
         {movies.length > 0 &&
