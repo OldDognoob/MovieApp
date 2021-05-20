@@ -22,7 +22,7 @@ function App() {
 
   return <div>
     {movies.length > 0 && movies.map((movie) => 
-    <Movie key={movie.id} data={movie}/>)}
+    <Movie key={movie.id} {...movie}/>)}
     </div>;
 }
 export default App;
